@@ -1,13 +1,17 @@
 import React from "react";
 import './App.css';
-import { Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
 import Home from "./Components/Home";
+import NotesSection from './Components/NotesSection';
+import PostLists from './Components/PostLists';
+import InputSection from './Components/InputSection';
 
 function App() {
   return (
+    <Router>
     <div className="app__container">
         <div>
           <div className="image__container">
@@ -33,6 +37,9 @@ function App() {
             </Route>
             <Route path="/">
               <Home />
+              <NotesSection />
+              <PostLists />
+              <InputSection />
             </Route>
           </Switch>
         </div>
@@ -40,6 +47,7 @@ function App() {
           <div>Copyright &copy; Expat Journal 2021 </div>
       </footer>
     </div>
+    </Router>
   );
 }
 
