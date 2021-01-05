@@ -1,0 +1,12 @@
+
+// eslint-disable-next-line
+export default {
+    ADD_POST: "ADD_POST",
+    DELETE_POST: "DELETE_POST",
+    UPDATE_POST: "UPDATE_POST",
+    
+    SET_INPUT_TITLE: "SET_INPUT_TITLE",
+    SET_INPUT_CONTENT: "SET_INPUT_CONTENT",
+    SET_INPUT_ID: "SET_INPUT_ID",
+    RESET_INPUT: "RESET_INPUT", 
+};
