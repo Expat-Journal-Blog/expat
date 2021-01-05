@@ -1,6 +1,7 @@
 
 import React from 'react';
-// import './NotesItem.css';
+import "../Posts.css"
+
 
 const NotesItem = ({ title, content, onItemClicked }) => {
     return (
@@ -9,7 +10,7 @@ const NotesItem = ({ title, content, onItemClicked }) => {
         role="button"
         onClick={onItemClicked}
         >
-            <h1>Your new Post:</h1>
+            <h2>Your new Post:</h2>
             <h3>Title: {title}</h3>
             <p>{content}</p>
         </div>

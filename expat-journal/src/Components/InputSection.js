@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import postsAction from "../redux/action/postsAction";
 import inputAction from "../redux/action/inputAction";
 import { Button } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 // import { makeStyles } from '@material-ui/core/styles';
 
 // const useStyles = makeStyles((theme) => ({
@@ -54,8 +54,8 @@ const InputSection = () => {
 
   return (
     // className={classes.root} noValidate autoComplete="off"
-    <form style={{backgroundColor: "#7AA587", borderTop: "5px dotted #031927"}}>
-      <div>
+    <form >
+      <div className="Inputs" >
         <input
           inputProps={{ "aria-label": "description" }}
           style={{ margin: "3rem", width: "10rem", border: "6px solid #5B6C5D" }}
@@ -64,9 +64,9 @@ const InputSection = () => {
           value={title}
           onChange={(e) => dispatch(inputAction.setInputTitle(e.target.value))}
         />
-        <TextField
+        <textarea
           id="filled-secondary"
-          label="Post Content:"
+          placeholder="Post Content:"
           variant="filled"
           color="secondary"
           margin="normal"
@@ -75,7 +75,7 @@ const InputSection = () => {
           onChange={(e) =>
             dispatch(inputAction.setInputContent(e.target.value))
           }
-        ></TextField>
+        ></textarea>
         <div>
           <Button
             color="primary"

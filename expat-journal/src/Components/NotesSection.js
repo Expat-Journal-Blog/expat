@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import NotesItem from "./NotesItem";
 import inputAction from "../redux/action/inputAction";
+import "../Posts.css"
 
 
 const NotesSection = () => {
@@ -17,8 +18,8 @@ const NotesSection = () => {
 
   if (posts.length === 0) {
     return (
-      <div>
-        <p style={{fontFamily: "Xanh Mono", fontSize: "2rem", color: "#7AA587",textDecoration: "underline"}}>You have no current posts. Go add some!</p>
+      <div className="Add-Posts" >
+        <p>You have no current posts. Go add some!</p>
       </div>
     );
   }
@@ -30,7 +31,7 @@ const NotesSection = () => {
         backgroundColor: "#5B6C5D",
         fontFamily: "Xanh Mono",
         justifyContent: "space-around",
-        border: "6px dotted black",
+        border: "2px solid black",
         fontSize: "1.5rem",
       }}
     >
