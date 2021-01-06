@@ -6,7 +6,7 @@ export const axiosWithAuth = () => {
     return axios.create({
         baseURL: "https://dtebo-expatbackend.herokuapp.com",
         headers: {
-            "Authorization":  `Basic ${token}`,
+            Authorization:  `Basic ${btoa("lambda-client:lambda-secret")}`,
             "Content-Type": "application/x-www-form-urlencoded",
         },
         
