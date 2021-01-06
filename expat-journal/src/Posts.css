@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: "Xanh Mono", monospace;
+    background-color: #5b6c5d;
+  }
+
+  .article-list{
+      color:wheat;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      font-size: 19px;
+      margin:0 15% 5% 15%;
+      
+  }
+  .article-list h1 {
+      color: #f8f8ff;
+      text-shadow: 1px 2px black;
+  }
+
+  .article-list h3{
+      text-decoration: underline;
+      line-height: 25px;
+  }
+
+  
+
+  .notes-item-container{
+    color:wheat;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 19px;
+    
+  }
+
+  .notes-item-container h2{
+      color: #f8f8ff;
+      text-shadow: 1px 2px black;
+  }
+
+  .Add-Posts{
+    color:wheat;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    border: 3px solid grey;
+  }
+  
+  .Inputs{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+  }
