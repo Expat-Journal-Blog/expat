@@ -56,11 +56,15 @@ body {
   font-size: 1.2rem;
 }
 .footer {
-  height: 20vh;
   text-align: center;
   font-size: 1.6rem;
   color: #ffffff;
+  background-color: grey;
+  
+
 }
 .footer div {
-  padding-top: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  
 }

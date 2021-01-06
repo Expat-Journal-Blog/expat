@@ -3,10 +3,7 @@
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-// import './PostList.css'
-// import expat1 from '../svg/expat1.jpg'
-// import expat2 from '../svg/expat2.jpg'
-// import expat3 from '../svg/expat3.jpg'
+import "../Posts.css"
 
 
 const PostList = () => {
@@ -15,12 +12,12 @@ const PostList = () => {
 
     useEffect(() => {
         axios.get("https://baconipsum.com/api/?type=meat-and-filler")
-        .then((response) => {
-            console.log(response)
-            setArticles(response.data)
+        .then((res) => {
+            console.log(res)
+            setArticles(res.data)
         })
         .catch((error) => {
-            console.log(error)
+            console.log("Error",error)
         })
     }, []);
 
