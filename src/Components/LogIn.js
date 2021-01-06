@@ -29,7 +29,13 @@ export default function LogIn() {
       .then((res) => {
         localStorage.setItem("token", res.data.access_token)
         console.log(res.data)
-        setUsers([res.data, ...users])
+
+        axiosWithAuth()
+        .get("/users/users")
+        .then((res) => {
+          setUsers([res.data.data, ...users]);
+        });
+        
         setFormValues(initialFormValues)
       })
       .catch((err) => {
