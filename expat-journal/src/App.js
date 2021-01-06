@@ -1,32 +1,51 @@
 import React from "react";
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
+import styles, { keyframes } from "styled-components";
 
 import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
 import Home from "./Components/Home";
-import NotesSection from './Components/NotesSection';
-import PostLists from './Components/PostLists';
-import InputSection from './Components/InputSection';
+
+const kf = keyframes`
+  100% {
+    opacity: 1;
+  }
+`
+
+const AppStyles = styles.div`
+  opacity: 0;
+  animation: ${kf} 0.5s ease-in-out forwards;
+
+  a {                       
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.4s ease-in-out;
+    }
+    transition: all 0.4s ease-in-out;
+  }
+`;
 
 function App() {
   return (
-    <Router>
     <div className="app__container">
+      <Router>
         <div>
           <div className="image__container">
-            <nav className="navbar">
-              <Link to="/"><h1>Expat Journal</h1></Link>
-              <div className="navbar__links">
-                  <Link to="/">Home</Link>
-                  <Link to="/signup">Sign Up</Link>
-                  <Link to="/login">Log In</Link>
+            <AppStyles>
+              <nav className="navbar">
+                <Link to="/"><h1>Expat Journal</h1></Link>
+                <div className="navbar__links">
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/signup">Sign Up</NavLink>
+                    <NavLink to="/login">Log In</NavLink>
+                </div>
+              </nav>
+              <div className="homepage__text">
+                <h2>Welcome to Expat Journal!</h2>
+                <p>Expat Journal is an all-in-one app for those curious travelers, bloggers, and photographers who want a way to document their adventures, and share it with their friends. Sign Up or Log In today!</p>
               </div>
-            </nav>
-            <div className="homepage__text">
-              <h2>Welcome to Expat Journal!</h2>
-              <p>Expat Journal is an all-in-one app for those curious travelers, bloggers, and photographers who want a way to document their adventures, and share it with their friends. Sign Up or Log In today!</p>
-            </div>
+            </AppStyles>
           </div>
           <Switch>
             <Route path="/signup">
@@ -37,17 +56,14 @@ function App() {
             </Route>
             <Route path="/">
               <Home />
-              <NotesSection />
-              <PostLists />
-              <InputSection />
             </Route>
           </Switch>
         </div>
+      </Router>
       <footer className="footer">
           <div>Copyright &copy; Expat Journal 2021 </div>
       </footer>
     </div>
-    </Router>
   );
 }
 

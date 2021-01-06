@@ -1,0 +1,33 @@
+.form__container {
+  height: 50vh;
+  text-align: center;
+  box-shadow: 0px 2px 4px 3px #031927;
+  border-radius: 50px;
+  width: 30%;
+  margin: 1% auto;
+  color: #ffffff;
+}
+.form__container button {
+  margin-top: 2%;
+}
+.formgroup__submit h2 {
+  padding-top: 3%;
+  font-size: 2rem;
+}
+.formgroup__inputs {
+  box-shadow: 2px 0px 4px 3px #031927;
+  border-radius: 50px;
+  width: 75%;
+  margin: 1% auto;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-around;
+  padding: 2%;
+  font-size: 1.6rem;
+}
+.labels {
+  margin-bottom: 1%;
+}
+.special__labels {
+  margin-bottom: 7%;
+}
