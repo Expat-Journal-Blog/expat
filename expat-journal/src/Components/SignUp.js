@@ -2,6 +2,8 @@ import React, { useState, useEffect} from "react";
 import schema from "../formSchema";
 import axios from "axios";
 import * as yup from "yup";
+import "./SignUp.css";
+import Button from "@material-ui/core/Button";
 
 const initialFormValues = {
   username: "", 
@@ -86,8 +88,8 @@ export default function SignUpForm() {
   };
 
   return (
-    <form className="form container" onSubmit={onSubmit}>
-      <div className="form-group submit">
+    <form className="form__container" onSubmit={onSubmit}>
+      <div className="formgroup__submit">
         <h2>New User</h2>
         <div className="errors">
           <div>{formErrors.name}</div>
@@ -97,9 +99,9 @@ export default function SignUpForm() {
         </div>
       </div>
 
-      <div className="form-group inputs">
+      <div className="formgroup__inputs">
         <h4>Add Your Information:</h4>
-        <label>
+        <label className="labels">
           Username:
           <input
             value={formValues.username}
@@ -108,7 +110,7 @@ export default function SignUpForm() {
             type="text"
           />
         </label>
-        <label>
+        <label className="labels">
           Email:
           <input
             value={formValues.primaryemail}
@@ -117,7 +119,7 @@ export default function SignUpForm() {
             type="email"
           />
         </label>
-        <label>
+        <label className="special__labels">
           Password:
           <input
             value={formValues.password}
@@ -127,7 +129,7 @@ export default function SignUpForm() {
           />
         </label>
       </div>
-      <button disabled={disabled}>Sign Up</button>
+      <Button variant="contained" disabled={disabled} color="secondary">Sign Up</Button>
     </form>
   );
 }

@@ -6,7 +6,7 @@ body {
 .image__container {
   display: flex;
   flex-flow: column wrap;
-  background-image: url("https://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_960_720.jpg");
+  background-image: url("https://cdn.pixabay.com/photo/2018/03/11/19/04/desert-3217765_960_720.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,11 +30,15 @@ body {
 .navbar__links {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  align-content: space-around;
   margin-right: 3%;
   color: #ffffff;
   text-decoration: none;
   padding: 1%;
+}
+.navbar__links a {
+  margin: 5px;
+  font-size: 1.2rem;
 }
 .homepage__text {
   color: #ffffff;
