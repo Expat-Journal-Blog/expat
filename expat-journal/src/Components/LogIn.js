@@ -1,31 +1,34 @@
 import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 import schema from "../validation/loginSchema"
-import axios from "axios"
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 const initialFormValues = {
   username: "",
-  primaryemail: "",
   password: "",
 }
 
 const initialFormErrors = {
   username: "",
-  primaryemail: "",
   password: "",
 }
 
 export default function LogIn() {
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState({
+    username: "",
+    password: "",
+  });
+
   const [disabled, setDisabled] = useState(true)
 
   const postNewUser = (newUser) => {
-    axios
-      .post("http://dtebo-expatbakend.herokuapp.com/login", newUser)
-      // ^^the above link is incorrect not allowing it to post.
+    axiosWithAuth()
+      .post("/login", `grant_type=password&username=${newUser.username}&password=${newUser.password}`,)
       .then((res) => {
+        localStorage.setItem("token", res.data.access_token)
+        console.log(res.data)
         setUsers([res.data, ...users])
         setFormValues(initialFormValues)
       })
@@ -36,7 +39,6 @@ export default function LogIn() {
   const formSubmit = () => {
     const newUser = {
       username: formValues.username,
-      primaryemail: formValues.primaryemail,
       password: formValues.password
     };
     postNewUser(newUser);
@@ -95,14 +97,6 @@ useEffect(() => {
             value={formValues.username} />
         </label>
         <label>
-          Email
-           <input
-            name="primaryemail"
-            type="text"
-            onChange={onChange}
-            value={formValues.primaryemail} />
-        </label>
-        <label>
           Password
            <input
             name="password"
@@ -121,7 +115,6 @@ useEffect(() => {
         
         <div className="errors">
           <div>{formErrors.username}</div>
-          <div>{formErrors.primaryemail}</div>
           <div>{formErrors.password}</div>
         </div>
       </form>
