@@ -2,8 +2,9 @@
 // just making sure the components work!
 
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import { axiosWithAuth } from "../utils/axiosWithAuth"
 import "../Posts.css"
+import InputSection from "./InputSection";
 
 
 const PostList = () => {
@@ -11,24 +12,30 @@ const PostList = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        axios.get("https://baconipsum.com/api/?type=meat-and-filler")
-        .then((res) => {
-            console.log(res)
-            setArticles(res.data)
+        axiosWithAuth().get("/posts/posts")
+        .then(res => {
+            setArticles(...articles, res.data)
+            console.log(res.data);
         })
-        .catch((error) => {
-            console.log("Error",error)
+        .catch(err => {
+            console.log(err);
         })
     }, []);
 
 
+
+
     return (
         <div className="article-list">
-            <h1>Current Posts: </h1>
-            
-           <h3>Traveling in a different country</h3><p>{articles[0]}</p>
-           <h3>Planning my adventure</h3><p>{articles[1]}</p>
-           <h3>Siteseeing</h3><p>{articles[2]}</p>
+            <InputSection />
+           {articles.map((article) => {
+               return (
+                   <div key={article.postid}>
+                        <h1>{article.title}</h1>
+                        <p>{article.body}</p>
+                   </div>
+               )
+           })}
            
         </div>
     )
