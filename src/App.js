@@ -1,18 +1,26 @@
 import React from "react";
-import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 import styles, { keyframes } from "styled-components";
 
 import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
 import Home from "./Components/Home";
 import PostLists from "./Components/PostLists";
+import InputSection from "./Components/InputSection";
+import NotesSection from "./Components/NotesSection";
 
 const kf = keyframes`
   100% {
     opacity: 1;
   }
-`
+`;
 
 const AppStyles = styles.div`
   opacity: 0;
@@ -35,37 +43,49 @@ function App() {
           <div className="image__container">
             <AppStyles>
               <nav className="navbar">
-                <Link to="/"><h1>Expat Journal</h1></Link>
+                <Link to="/">
+                  <h1>Expat Journal</h1>
+                </Link>
                 <div className="navbar__links">
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/signup">Sign Up</NavLink>
-                    <NavLink to="/login">Log In</NavLink>
+                  <NavLink to="/">Home</NavLink>
+                  <NavLink to="/signup">Sign Up</NavLink>
+                  <NavLink to="/login">Log In</NavLink>
+                  <li>
+                    <Link to="/input-section">Add-or-Edit-a-Post</Link>
+                  </li>
                 </div>
               </nav>
               <div className="homepage__text">
                 <h2>Welcome to Expat Journal!</h2>
-                <p>Expat Journal is an all-in-one app for those curious travelers, bloggers, and photographers who want a way to document their adventures, and share it with their friends. Sign Up or Log In today!</p>
+                <p>
+                  Expat Journal is an all-in-one app for those curious
+                  travelers, bloggers, and photographers who want a way to
+                  document their adventures, and share it with their friends.
+                  Sign Up or Log In today!
+                </p>
               </div>
             </AppStyles>
           </div>
           <Switch>
             <Route path="/posts">
-              <PostLists/>
+              <PostLists />
             </Route>
             <Route path="/signup">
-              <SignUp/>
+              <SignUp />
             </Route>
             <Route path="/login">
-              <LogIn/>
+              <LogIn />
             </Route>
             <Route path="/">
               <Home />
             </Route>
           </Switch>
+          <Route path="/input-section" component={InputSection} />
+          {/* <NotesSection /> */}
         </div>
       </Router>
       <footer className="footer">
-          <div>Copyright &copy; Expat Journal 2021 </div>
+        <div>Copyright &copy; Expat Journal 2021 </div>
       </footer>
     </div>
   );

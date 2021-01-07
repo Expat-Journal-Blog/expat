@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import postsAction from "../redux/action/postsAction";
 import inputAction from "../redux/action/inputAction";
-import { Button } from "@material-ui/core";
-
+import NotesSection from "./NotesSection";
+import "./InputSection.css";
 
 const InputSection = () => {
   const id = useSelector((state) => state.inputs.id);
@@ -41,50 +41,36 @@ const InputSection = () => {
   };
 
   return (
-    <form >
-      <div className="Inputs" >
-        <input
-          inputprops={{ "aria-label": "description" }}
-          style={{ margin: "3rem", width: "10rem", border: "6px solid #5B6C5D" }}
-          type="text"
-          placeholder="Post title, date"
-          value={title}
-          onChange={(e) => dispatch(inputAction.setInputTitle(e.target.value))}
-        />
-        <textarea
-          id="filled-secondary"
-          placeholder="Post Content:"
-          variant="filled"
-          color="secondary"
-          margin="normal"
-          style={{border: "6px solid #5B6C5D"}}
-          value={content}
-          onChange={(e) =>
-            dispatch(inputAction.setInputContent(e.target.value))
-          }
-        ></textarea>
-        <div>
-          <Button
-            color="primary"
-            variant="contained"
-            style={{margin: "3rem"}}
-            onClick={id === -1 ? addPost : updatePost}
+    <div className="input-section__container">
+      <input
+        className="input-section"
+        type="text"
+        placeholder="Post title"
+        value={title}
+        onChange={(e) => dispatch(inputAction.setInputTitle(e.target.value))}
+      />
+      <textarea
+        className="input-section"
+        placeholder="Post content"
+        value={content}
+        onChange={(e) => dispatch(inputAction.setInputContent(e.target.value))}
+      ></textarea>
+      <div className="input-section__container__btnwrapper">
+        <button className="input-btn" onClick={id === -1 ? addPost : updatePost}>
+          {id === -1 ? "ADD POST" : "UPDATE POST"}
+        </button>
+        {id !== -1 && (
+          <button
+            className="input-btn"
+            onClick={deletePost}
+            style={{ margin: "1rem", backgroundColor: "#7C6249" }}
           >
-            {id === -1 ? "ADD POST" : "UPDATE POST"}
-          </Button>
-          {id !== -1 && (
-            <Button 
-            onClick={deletePost} 
-            color="primary" 
-            variant="contained"
-            
-            >
-              Delete Post
-            </Button>
-          )}
-        </div>
+            Delete Note
+          </button>
+        )}
+        <NotesSection />
       </div>
-    </form>
+    </div>
   );
 };
 

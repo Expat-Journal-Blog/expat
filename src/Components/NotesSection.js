@@ -1,10 +1,8 @@
-
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import NotesItem from "./NotesItem";
 import inputAction from "../redux/action/inputAction";
-import "../Posts.css"
-
+import "./NotesSection.css";
 
 const NotesSection = () => {
   const dispatch = useDispatch();
@@ -18,23 +16,13 @@ const NotesSection = () => {
 
   if (posts.length === 0) {
     return (
-      <div className="Add-Posts" >
-        <p>You have no current posts. Go add some!</p>
+      <div className=".notes-section__container__empty">
+        <p className="static-note">You have no current posts. Go add some!</p>
       </div>
     );
   }
-
   return (
-    <div
-      style={{
-        display: "flex",
-        backgroundColor: "#5B6C5D",
-        fontFamily: "Xanh Mono",
-        justifyContent: "space-around",
-        border: "2px solid black",
-        fontSize: "1.5rem",
-      }}
-    >
+    <div className="notes-section__container">
       {posts.map((item, index) => {
         if (item) {
           return (
