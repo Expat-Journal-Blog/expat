@@ -79,6 +79,9 @@ function App() {
             <Route path="/">
               <Home />
             </Route>
+            <Route path="/posts">
+              <PostLists />
+            </Route>
           </Switch>
           <Route path="/input-section" component={InputSection} />
           {/* <NotesSection /> */}

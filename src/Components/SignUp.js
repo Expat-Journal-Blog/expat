@@ -26,7 +26,7 @@ export default function SignUpForm() {
 
   const postNewUser = (newUser) => {
     axios
-      .post("http://dtebo-expatbackend.herokuapp.com/createnewuser", newUser)
+      .post("https://dtebo-expatbackend.herokuapp.com/createnewuser", newUser)
       .then((res) => {
         console.log(res);
         setUsers([res, ...users]);
