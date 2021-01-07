@@ -46,7 +46,7 @@ export default function LogIn() {
       axiosWithAuth()
         .get("/users/users")
         .then((res) => {
-          setUsers([res.data.data, ...users]);
+          setUsers([res.data, ...users]);
         });
   };
   const formSubmit = () => {
