@@ -14,7 +14,7 @@ import LogIn from "./Components/LogIn";
 import Home from "./Components/Home";
 import PostLists from "./Components/PostLists";
 import InputSection from "./Components/InputSection";
-import NotesSection from "./Components/NotesSection";
+
 
 const kf = keyframes`
   100% {
