@@ -129,7 +129,7 @@ export default function SignUpForm() {
           />
         </label>
       </div>
-      <Button variant="contained" disabled={disabled} color="secondary">Sign Up</Button>
+      <Button type="submit" variant="contained" disabled={disabled} color="secondary">Sign Up</Button>
     </form>
   );
 }
