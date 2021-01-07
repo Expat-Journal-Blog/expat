@@ -13,11 +13,8 @@ import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
 import Home from "./Components/Home";
 import PostLists from "./Components/PostLists";
-<<<<<<< HEAD
-=======
 import InputSection from "./Components/InputSection";
 
->>>>>>> 9766b54732a894815df6e44e28539544e9f724b7
 
 const kf = keyframes`
   100% {
