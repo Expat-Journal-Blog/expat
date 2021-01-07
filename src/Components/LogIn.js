@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 import schema from "../validation/loginSchema"
+import axios from 'axios'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 const initialFormValues = {
@@ -25,22 +26,28 @@ export default function LogIn() {
 
   const postNewUser = (newUser) => {
     axiosWithAuth()
-      .post("/login", `grant_type=password&username=${newUser.username}&password=${newUser.password}`,)
+      .post("/login", `grant_type=password&username=${newUser.username}&password=${newUser.password}`, {
+        headers: {
+          // btoa is converting our client id/client secret into base64
+          Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+          "Content-Type": "application/x-www-form-urlencoded",
+        }
+      })
       .then((res) => {
         localStorage.setItem("token", res.data.access_token)
         console.log(res.data)
-
-        axiosWithAuth()
-        .get("/users/users")
-        .then((res) => {
-          setUsers([res.data.data, ...users]);
-        });
         
         setFormValues(initialFormValues)
       })
       .catch((err) => {
         console.log(err);
       });
+
+      axiosWithAuth()
+        .get("/users/users")
+        .then((res) => {
+          setUsers([res.data.data, ...users]);
+        });
   };
   const formSubmit = () => {
     const newUser = {
