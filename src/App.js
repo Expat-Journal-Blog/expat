@@ -6,6 +6,7 @@ import styles, { keyframes } from "styled-components";
 import SignUp from "./Components/SignUp";
 import LogIn from "./Components/LogIn";
 import Home from "./Components/Home";
+import PostLists from "./Components/PostLists";
 
 const kf = keyframes`
   100% {
@@ -48,6 +49,9 @@ function App() {
             </AppStyles>
           </div>
           <Switch>
+            <Route path="/posts">
+              <PostLists/>
+            </Route>
             <Route path="/signup">
               <SignUp/>
             </Route>

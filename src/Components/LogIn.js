@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 import schema from "../validation/loginSchema"
-import axios from 'axios'
+// import axios from 'axios'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 const initialFormValues = {
@@ -36,8 +36,8 @@ export default function LogIn() {
       .then((res) => {
         localStorage.setItem("token", res.data.access_token)
         console.log(res.data)
-        
         setFormValues(initialFormValues)
+        window.location = '/posts'
       })
       .catch((err) => {
         console.log(err);
