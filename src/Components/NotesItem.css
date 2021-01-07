@@ -1,0 +1,20 @@
+
+.notes-item-container {
+    margin: 2rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    background: rgba(166, 214, 212, 0.2);
+    color: black;
+    text-align: center;
+  }
+  
+  h3 {
+    overflow: hidden;
+    object-fit: fill;
+  }
+
+  p {
+    overflow: hidden;
+    object-fit: fill;
+  }

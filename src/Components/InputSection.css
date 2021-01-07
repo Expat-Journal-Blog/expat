@@ -1,0 +1,57 @@
+.input-section__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-section {
+  padding: 1rem;
+  margin: 2rem;
+  font-family: "Xanh Mono";
+  background: rgb(131, 154, 160);
+  border: 2px solid #fff;
+  cursor: pointer;
+  font-weight: 700;
+  overflow: hidden;
+  object-fit: fill;
+}
+
+.input-section:hover {
+  padding: 1rem;
+  margin: 2rem;
+  font-family: "Xanh Mono";
+  background: rgb(131, 154, 160);
+  cursor: pointer;
+  font-weight: 700;
+  overflow: hidden;
+  object-fit: fill;
+  border: 2px solid black;
+}
+
+.input-btn {
+  background: rgb(131, 154, 160);
+  color: #fff;
+  border: 2px solid #fff;
+  font-family: "Xanh Mono";
+  font-size: 1rem;
+  
+  cursor: pointer;
+}
+
+.input-btn:hover {
+  background: rgb(131, 154, 160);
+  color: black;
+  border: 2px solid black;
+  font-size: 1rem;
+  font-family: "Xanh Mono";
+  
+  cursor: pointer;
+}
+
+.input-section__container__btnwrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  font-family: "Xanh Mono";
+}
+
