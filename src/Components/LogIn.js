@@ -17,10 +17,10 @@ const initialFormErrors = {
 export default function LogIn() {
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
-  const [users, setUsers] = useState({
+  const [users, setUsers] = useState([{
     username: "",
     password: "",
-  });
+  }]);
 
   const [disabled, setDisabled] = useState(true)
 
@@ -46,7 +46,7 @@ export default function LogIn() {
       axiosWithAuth()
         .get("/users/users")
         .then((res) => {
-          setUsers([res.data, ...users]);
+          setUsers([...users, res.data]);
         });
   };
   const formSubmit = () => {
